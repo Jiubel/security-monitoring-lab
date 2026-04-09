@@ -1,123 +1,86 @@
 ---
 layout: default
+title: Home SOC Lab
 ---
 
-Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+# 🛡️ Home SOC Lab (Wazuh + Cowrie Honeypot)
 
-[Link to another page](./another-page.html).
+## Overview
+This project focuses on building a home SOC lab to simulate attacker activity and observe how it is captured, ingested, and analyzed within a SIEM. It demonstrates the basic workflow of attack simulation, log collection, alerting, and investigation.
 
-There should be whitespace between paragraphs.
+## Tools Used
+- Wazuh
+- Cowrie
+- Oracle VM VirtualBox
+- Ubuntu Linux
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+## Lab Setup
+The lab was built using Oracle VM VirtualBox with multiple virtual machines to simulate a basic SOC environment. Wazuh was configured as the central SIEM for log collection and analysis, while Cowrie was deployed as an SSH honeypot to capture and monitor attacker activity.
 
-# Header 1
+## What I Did
+- Set up a virtual SOC lab using Oracle VM VirtualBox
+- Installed and configured Wazuh for log monitoring and alerting
+- Simulated failed login attempts to generate authentication logs
+- Verified detection of suspicious activity in Wazuh
+- Deployed Cowrie honeypot to capture attacker interactions
+- Simulated attacker access via SSH and executed commands
+- Analyzed honeypot activity and alerts within the Wazuh dashboard
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+## Implementation
 
-## Header 2
+### 1. Virtual Lab Setup
+Created virtual machines in Oracle VM VirtualBox to build the SOC environment.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+![VirtualBox Setup](screenshots/soc-lab-virtualbox-overview.png)
 
-### Header 3
+### 2. Wazuh Installation
+Installed Wazuh using the official script and confirmed it was working through the dashboard.
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+![Wazuh Installation](screenshots/wazuh-installation.png)
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+![Wazuh Dashboard](screenshots/wazuh-dashboard-initial.png)
 
-#### Header 4
+### 3. Failed Login Simulation
+Generated failed authentication attempts using the `su wazuh` command to simulate suspicious login behavior.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+![Failed Login Attempts](screenshots/failed_su_authentication_attempts.png)
 
-##### Header 5
+### 4. Detection in Wazuh
+Observed that Wazuh detected the failed login attempts and generated alerts related to authentication failures.
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+![Wazuh Detection](screenshots/wazuh_failed_login_detection.png)
 
-###### Header 6
+### 5. Cowrie Honeypot Setup
+Configured and started the Cowrie SSH honeypot to capture attacker interactions.
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+![Cowrie Startup](screenshots/cowrie_honeypot_startup.png)
 
-### There's a horizontal rule below this.
+### 6. SSH Attack Simulation
+Connected to the honeypot via SSH and executed commands to simulate attacker behavior.
 
-* * *
+**Commands used:**
+- `ssh root@localhost -p 2222`
+- `whoami`
 
-### Here is an unordered list:
+![SSH Attack](screenshots/cowrie_ssh_attack_simulation.png)
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+### 7. Wazuh Monitoring Honeypot Activity
+Verified that Wazuh detected honeypot activity including login sessions and command execution.
 
-### And an ordered list:
+![Wazuh Cowrie Detection](screenshots/wazuh_cowrie_activity_detection.png)
 
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
+## Results
+- Generated and detected failed login attempts
+- Captured attacker activity through a honeypot
+- Verified alerting and log visibility in Wazuh
+- Demonstrated a full attack-to-detection workflow
 
-### And a nested list:
+## Skills Demonstrated
+- SIEM monitoring
+- Log analysis
+- Alert investigation
+- Linux command line
+- Honeypot deployment
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+## Project Link
+[View the GitHub Repository](https://github.com/Jiubel/Jiubel-s-Home-SOC-Lab)
