@@ -1,5 +1,8 @@
 # 🛡️ Home SOC Lab (Wazuh + Cowrie Honeypot)
 
+## Summary
+This project demonstrates how I built a small SOC lab using Wazuh and Cowrie to simulate attacker activity and create custom detections based on real log data.
+
 ## 📌 Objective
 The goal of this project was to build a small home SOC lab to simulate attacker activity and understand how it gets captured, ingested, and detected inside a SIEM.
 
