@@ -4,7 +4,7 @@ title: Security Monitoring Lab (Wazuh + Cowrie)
 ---
 
 <div style="text-align: right;">
-  <a href="https://github.com/Jiubel/Jiubelsproject1.github.io/" target="_blank" class="github-btn">
+  <a href="https://github.com/Jiubel/security-monitoring-lab" target="_blank" class="github-btn">
     View on GitHub →
   </a>
 </div>
